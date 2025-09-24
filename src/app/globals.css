@@ -1,0 +1,35 @@
+/* Arquivo: src/app/globals.css */
+/* Propósito: Estilos globais para a aplicação */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/lato-600.woff2") format("truetype");
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply font-inter antialiased subpixel-antialiased;
+  }
+
+  /* GRID/Outline PARA INSPEÇAO  */
+  * {
+    /* outline: 1px solid #e0bcdd; */
+    outline-offset: 0;
+  }
+}
+
+/* Oculta a barra de rolagem em todos os navegadores */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE e Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
