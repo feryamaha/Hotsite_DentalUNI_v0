@@ -1,0 +1,26 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "vitest/globals": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals",
+        "plugin:vitest/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "vitest"
+    ],
+    "rules": {
+        // Adicione regras personalizadas, se necessário
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error"
+        ]
+    }
+}

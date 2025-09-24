@@ -1,0 +1,689 @@
+refatore essa mensagem de PR abaixo e formate o texto em formato markdown para eu copiar e colar no texto da pr no github: Esta PR refatora completamente o projeto HotsiteDentalUNI_v0, atualizando-o para Next.js 15.1.6, React 19.0.0 e TypeScript 5.1.6, e migrando o gerenciamento de pacotes do Yarn para o Bun 0.5.8. O objetivo é modernizar a stack, otimizar performance e garantir maior segurança.O projeto foi reconstruído do zero, focando em uma estrutura essencial e livre de dependências legadas.Benefícios
+Performance: Redução de tempos de build e desenvolvimento.
+Segurança: Dependências atualizadas.
+Manutenibilidade: Código moderno e padronizado. Detalhes Completos
+Para mais detalhes sobre dependências e execução, consulte a tarefa no GoodDay: https://www.goodday.work/t/SZhNjX
+
+Aqui está a mensagem de PR refatorada e formatada em Markdown para ser copiada e colada diretamente no GitHub:markdown
+
+# Refatoração Completa do Projeto HotsiteDentalUNI_v0
+
+Esta PR realiza uma refatoração completa do projeto **HotsiteDentalUNI_v0**, atualizando a stack tecnológica e reconstruindo a base de código do zero. As principais mudanças incluem:
+
+- **Atualização da stack**:
+  - Next.js para versão **15.1.6**
+  - React para versão **19.0.0**
+  - TypeScript para versão **5.1.6**
+  - Migração do gerenciador de pacotes de Yarn para **Bun 0.5.8**
+
+- **Objetivos**:
+  - Modernizar a stack tecnológica
+  - Melhorar a performance de build e desenvolvimento
+  - Aumentar a segurança com dependências atualizadas
+  - Garantir maior manutenibilidade com código limpo e padronizado
+
+## Benefícios
+- **Performance**: Redução significativa nos tempos de build e desenvolvimento.
+- **Segurança**: Todas as dependências foram atualizadas para mitigar vulnerabilidades.
+- **Manutenibilidade**: Estrutura de código mais clara, moderna e alinhada às melhores práticas.
+
+## Detalhes
+O projeto foi reconstruído com foco em uma arquitetura essencial, eliminando dependências legadas e otimizando a base de código.
+
+Para mais detalhes sobre as mudanças, dependências e instruções de execução, consulte a tarefa no GoodDay: [SZhNjX](https://www.goodday.work/t/SZhNjX).
+
+Essa versão mantém o conteúdo original, mas organiza melhor as informações, usa linguagem mais clara e concisa, e formata em Markdown para melhor legibilidade no GitHub.
+
+Use esse readme abaixo para criar uma breve descricao do projeto para o github: ## Hotsite DentalUNI v0Hotsite desenvolvido com Next.js 15, React 19 e Tailwind CSS para apresentação de planos odontológicos, área de ajuda e fluxo de contratação.### Sumário
+[Stack e Requisitos](#stack-e-requisitos)
+[Instalação](#instalação)
+[Scripts](#scripts)
+[Estrutura do Projeto](#estrutura-do-projeto)
+[Estilos e Design System](#estilos-e-design-system)
+[Formulários e Validações](#formulários-e-validações)
+[Geração de Componentes e Ícones](#geração-de-componentes-e-ícones)
+[Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
+[Build e Deploy](#build-e-deploy)
+[Boas Práticas](#boas-práticas)
+[Licença](#licença)
+
+### Stack e Requisitos
+**Framework**: Next.js 15 (App Router) com Turbopack experimental
+**Linguagem**: TypeScript 5
+**UI**: React 19, Tailwind CSS 3, tailwindcss-animate, tailwind-merge, tailwind-scrollbar
+**Forms**: react-hook-form + zod + @hookform/resolvers
+**Mapas**: leaflet + react-leaflet
+**Outros**: lucide-react, swiper
+
+Requisitos mínimos:Node.js 18.18+ (recomendado 20+)
+Bun 1.x (opcional, recomendado – há bun.lockb), ou npm/yarn/pnpm
+
+### Instalação
+Com Bun (recomendado):bash
+
+bun install
+
+Com npm:bash
+
+npm install
+
+### Scripts
+Disponíveis em package.json:dev: inicia o servidor de desenvolvimento com Turbopack.bash
+
+bun dev # ou npm run dev
+
+build: gera o build de produção com Turbopack.bash
+
+bun run build # ou npm run build
+
+start: inicia o servidor em modo produção.bash
+
+bun start # ou npm run start
+
+lint: executa o ESLint.bash
+
+bun run lint # ou npm run lint
+
+generate:component: gera um componente via Plop.bash
+
+bun plop component
+
+generate:icon: gera componentes de ícone a partir de public/assets/icons.bash
+
+bun scripts/generateIcons.js
+
+### Estrutura do Projeto
+Diretórios principais em src/:app/: rotas (App Router), layout.tsx, páginas, globals.css.page/ com seções: plans/, help/, (contractPlans)/ etc.
+
+components/: componentes de UI e pages específicas (Home, Help, OurPlans, fluxo de contratação, UI genérica).
+constants/: enums, interfaces e constantes de planos/horários.
+context/: FormContext para estado de formulários.
+data/: mocks e dados estáticos (rede credenciada, blog, FAQs, menu, IDSS).
+hooks/: hooks utilitários, como renderização HTML e datas formatadas.
+lib/: schemas e utils compartilhados (ex.: formSchema.ts, utils.ts).
+schemas/: schemas de contrato (contractPlansSchema.ts).
+scripts/: automações (ex.: generateIcons.js, Icon.tsx, IconsList.tsx).
+types/: tipos auxiliares (ex.: menuConfigMobile.ts).
+
+Público/ativos:public/assets/: ícones SVG e imagens .webp usadas nas seções.
+public/fonts/: fontes web (ex.: lato-600.woff2).
+
+Alias de importação:Configurado em tsconfig.json: @/* aponta para src/*.
+
+### Estilos e Design System
+Tailwind configurado em tailwind.config.ts com:Paleta extensa (ver tons red, gray, green, blue), tokens redSTD, greenCoverage, etc.
+Imagens de fundo nomeadas: BgHomeHelp, BgContact, BgBannerHomeOurPlans, bgFooter, BGStepB0...
+fontFamily: inter, lato, openSans.
+Keyframes/animações para modais, accordions e efeitos (bounce-x, modal-enter-mobile, ...).
+Utilitários personalizados via plugin (classes Typography*, btn*, styleSlider*, etc.).
+screens customizadas: @mobile, @tablet, @laptop, @Desktop, @Desktop1440, @LargeDesktop.
+
+PostCSS em postcss.config.js com tailwindcss e autoprefixer.
+
+Onde declarar estilos globais:src/app/globals.css
+
+### Formulários e Validações
+react-hook-form + zod para validação tipada.
+Schemas em src/lib/formSchema.ts, src/api/schemas/formHelpSchema.ts e src/schemas/contractPlansSchema.ts.
+Componentes do fluxo de contratação em src/components/PageContratarPlano/ (Steps e Dependentes).
+
+### Geração de Componentes e Ícones
+Componentes: bun plop component (templates configurados via Plop). Caso use npm, instale o Plop global/localmente ou rode via npx.
+Ícones: bun scripts/generateIcons.js varre public/assets/icons e exporta componentes React utilitários (src/scripts/Icon.tsx, IconsList.tsx).
+
+### Ambiente de Desenvolvimento
+Copie variáveis de ambiente se necessário (não há .env obrigatório no momento).
+Instale dependências e rode dev.
+Acesse http://localhost:3000.
+
+Dicas:Utilize o alias @/ para imports absolutos.
+Prefira componentes de UI em src/components/ui/ onde disponível.
+Siga as classes utilitárias tipográficas e de botões já definidas no Tailwind para consistência visual.
+
+### Build e Deploy
+Build de produção: bun run build (ou npm run build).
+Execução: bun start (ou npm start).
+Next.js 15 com reactStrictMode e experimental.turbo habilitado em next.config.ts.
+
+Deploys comuns:Vercel (recomendado para Next.js): basta apontar o projeto; os comandos padrão são detectados.
+Docker (opcional): crie uma imagem instalando deps e rodando next build, exponha a porta 3000 e use next start.
+
+### Boas Práticas
+TypeScript estrito habilitado: mantenha os tipos atualizados.
+Lint: execute lint antes de abrir PRs.
+ComponentesNomes descritivos; evite abreviações.
+Extraia UI reutilizável para components/ui.
+
+EstilosUse tokens e utilitários Tailwind existentes.
+Evite CSS ad-hoc fora de globals.css quando possível.
+
+### Licença
+Defina a licença conforme a política do projeto (ex.: MIT, proprietário). Caso precise, adicione um arquivo LICENSE na raiz.
+
+Aqui está uma breve descrição do projeto Hotsite DentalUNI v0 para o GitHub, baseada no README fornecido, em formato Markdown:markdown
+
+## Hotsite DentalUNI v0
+
+Hotsite para apresentação de planos odontológicos, com seções de ajuda e fluxo de contratação. Desenvolvido com **Next.js 15**, **React 19**, **TypeScript 5**, e **Tailwind CSS 3**, oferece uma interface moderna, responsiva e otimizada.
+
+### Principais Funcionalidades
+- Exibição de planos odontológicos
+- Área de suporte e FAQs
+- Fluxo de contratação com formulários validados
+- Design system com Tailwind CSS e animações personalizadas
+- Suporte a mapas com `react-leaflet`
+
+### Tecnologias
+- **Framework**: Next.js 15 (App Router, Turbopack)
+- **Linguagem**: TypeScript 5
+- **UI**: React 19, Tailwind CSS 3
+- **Formulários**: `react-hook-form` + `zod`
+- **Outros**: `lucide-react`, `swiper`
+
+### Como Começar
+1. Instale as dependências: `bun install` (ou `npm install`)
+2. Inicie o servidor de desenvolvimento: `bun dev` (ou `npm run dev`)
+3. Acesse: `http://localhost:3000`
+
+Consulte o [README](./README.md) para detalhes sobre instalação, scripts, estrutura do projeto e boas práticas.
+
+---
+
+Licença: A definir (consulte a política do projeto).
+
+Essa descrição é concisa, destaca as principais funcionalidades e tecnologias, e inclui instruções básicas para começar, mantendo-se adequada para a seção de descrição do repositório no GitHub.
+
+essa mensagem precisa ser bem curta e objetiva e pode ser texto normal sem formatacao
+
+Hotsite DentalUNI v0: Site para planos odontológicos com Next.js 15, React 19, TypeScript 5 e Tailwind CSS. Inclui seções de ajuda e fluxo de contratação. Instale com bun install e rode com bun dev. Veja o README para detalhes.
+
+eu estou trabalhando em projeto sozinho na minha empresa, eu mesmo estou desenvolvendo o front e versionando o codigo, criando as pull request mas eu mesmo que irei aprovar é possivel isso? ganharei alguma Achievements por aprovar e aprovar de primeira o codigo sem precisar revisar?
+
+Sim, é possível que você, trabalhando sozinho, crie e aprove suas próprias pull requests (PRs) no GitHub, especialmente se for o único desenvolvedor e mantenedor do projeto. No entanto, vamos abordar suas perguntas em detalhes:1. É possível criar e aprovar suas próprias pull requests?Sim, tecnicamente é possível. No GitHub, se você tem permissões de administrador ou de escrita no repositório, pode criar uma PR e aprová-la você mesmo. O processo seria:Criar a PR a partir de uma branch (ex.: feature/nova-funcionalidade) para a branch principal (ex.: main).
+Revisar o código (você mesmo, neste caso).
+Aprovar a PR e fazer o merge.
+
+Porém, vale notar:Boas práticas: Mesmo trabalhando sozinho, criar PRs é uma boa prática para manter um histórico claro das mudanças, documentar o progresso e facilitar revisões futuras. Aprovar suas próprias PRs não é ideal em equipes, mas em projetos solo é comum, já que não há outros revisores.
+Configurações do repositório: Se o repositório tiver regras de proteção de branch (como exigir revisões obrigatórias), você precisará desativar essas regras ou se incluir como revisor para aprovar. Caso contrário, o GitHub pode bloquear o merge até que uma revisão seja feita.
+
+2. Ganharei Achievements por aprovar ou aprovar de primeira?O GitHub oferece Achievements (ou "badges") para certas ações no repositório, mas os critérios para ganhá-los são específicos e nem sempre públicos. Com base no que se sabe sobre Achievements até setembro de 2025:Aprovar PRs: Não há um Achievement específico no GitHub para "aprovar uma PR" ou "aprovar de primeira sem revisões". Os Achievements mais comuns relacionados a PRs incluem:Pull Shark: Concedido por abrir várias PRs (ex.: 2, 16, 128 PRs abertas).
+Quickdraw: Fechar uma issue ou PR dentro de 5 minutos após a criação (não se aplica diretamente a aprovar).
+Galaxy Brain: Responder a discussões ou perguntas, não relacionado a PRs.
+
+Aprovar de primeira sem revisar: Como você está sozinho, aprovar suas próprias PRs sem revisões detalhadas não gera Achievements específicos. O GitHub não premia diretamente a "rapidez" ou a ausência de revisões em PRs. Além disso, Achievements como Pull Shark focam na criação de PRs, não na aprovação.
+Possíveis Achievements indiretos:Se você criar muitas PRs ao longo do tempo, pode ganhar o Pull Shark.
+Se você configurar o repositório para usar GitHub Actions para testes automatizados e aprovar PRs após testes bem-sucedidos, pode eventualmente ganhar Achievements como YOLO (fazer merge sem revisão, mas isso não é recomendado) ou outros relacionados a automações.
+
+3. Recomendações para projetos soloUse PRs para documentação: Mesmo sozinho, descreva claramente o que cada PR faz. Isso ajuda a manter um histórico organizado e facilita caso outra pessoa entre no projeto no futuro.
+Automatize revisões: Configure GitHub Actions para rodar linters (ex.: ESLint para TypeScript) e testes automaticamente. Isso "simula" uma revisão objetiva e pode evitar erros.
+Evite o YOLO merge: Aprovar sem revisar pode levar a erros. Mesmo que você seja o único desenvolvedor, revisar seu próprio código (ou usar ferramentas de análise estática) melhora a qualidade.
+Achievements como motivação: Se quiser conquistar Achievements, foque em abrir PRs consistentes (para Pull Shark) ou participe de discussões em outros repositórios para ganhar badges como Galaxy Brain.
+
+ResumoSim, você pode criar e aprovar suas próprias PRs no GitHub. No entanto, não há Achievements específicos por aprovar PRs ou por aprová-las de primeira sem revisão. Para maximizar a qualidade do projeto e possivelmente ganhar Achievements, crie PRs bem documentadas, use automações para validação e continue contribuindo ativamente. Se precisar de ajuda com configurações de GitHub Actions ou boas práticas para PRs solo, posso sugerir exemplos!
+
+como eu posso criar isso: Automatize revisões: Configure GitHub Actions para rodar linters (ex.: ESLint para TypeScript) e testes automaticamente. Isso "simula" uma revisão objetiva e pode evitar erros. POrque basicamente como sou o unico mantenador desse projeto eu acabo revisando antes de comitar etnao quando eu comito e faco push e crio pr é apenas para documentar porque tudo ja foi revisado e testado no ambiente de desenvolvimento.
+
+Entendi! Como você é o único mantenedor do projeto e já revisa o código antes de commitar, criar um GitHub Actions para automatizar revisões com linters (como ESLint para TypeScript) e testes pode reforçar a qualidade do código e formalizar o processo, além de documentar tudo nas suas pull requests (PRs). Isso também pode ajudar a detectar erros que você possa ter deixado passar e manter consistência no projeto.Abaixo, explico passo a passo como configurar um GitHub Actions para rodar o ESLint e testes automaticamente quando você faz push ou cria uma PR, usando o projeto Hotsite DentalUNI v0 como base (considerando que você usa TypeScript, Next.js e, possivelmente, Bun).Passo a Passo para Configurar GitHub Actions para Linters e Testes1. Verifique se o ESLint está ConfiguradoNo seu projeto, você já mencionou no README que há um script lint no package.json (ex.: bun run lint). Certifique-se de que o ESLint está configurado corretamente:No package.json, deve haver algo como:json
+
+"scripts": {
+  "lint": "eslint 'src/**/*.{ts,tsx}'"
+}
+
+Confirme que as dependências do ESLint estão instaladas:json
+
+"devDependencies": {
+  "eslint": "^8.0.0",
+  "@typescript-eslint/eslint-plugin": "^5.0.0",
+  "@typescript-eslint/parser": "^5.0.0",
+  "eslint-config-next": "^15.0.0"
+}
+
+Se não estiverem, instale-as com:bash
+
+bun add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-next
+
+Crie ou verifique o arquivo .eslintrc.json (ou .eslintrc.js) na raiz do projeto. Um exemplo básico para TypeScript e Next.js:json
+
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Adicione regras personalizadas, se necessário
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  }
+}
+
+2. Configure Testes (Se Aplicável)Se o projeto já tem testes (ex.: usando Jest, Vitest ou Testing Library), certifique-se de que há um script de teste no package.json, como:json
+
+"scripts": {
+  "test": "jest" // ou "vitest run" para Vitest
+}
+
+Se ainda não tem testes, recomendo configurar uma ferramenta como Vitest (mais leve e compatível com Bun) ou Jest. Para Vitest:bash
+
+bun add -D vitest @testing-library/react @testing-library/jest-dom
+
+Configure o Vitest no package.json:json
+
+"scripts": {
+  "test": "vitest run"
+}
+
+Crie um arquivo vitest.config.ts na raiz:ts
+
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    environment: 'jsdom', // Para testes com React
+    globals: true,
+    setupFiles: './src/setupTests.ts', // Opcional, para configurações globais
+  },
+});
+
+3. Crie o Workflow do GitHub ActionsAgora, vamos criar um arquivo de workflow para o GitHub Actions que rode o ESLint e os testes automaticamente em cada push ou PR.Crie o diretório de workflows:
+Na raiz do projeto, crie a pasta .github/workflows/ (se ainda não existir).
+Crie o arquivo de workflow:
+Crie um arquivo chamado .github/workflows/lint-and-test.yml com o seguinte conteúdo:yaml
+
+name: Lint and Test
+
+on:
+  push:
+    branches: [main, develop] # Ajuste para suas branches
+  pull_request:
+    branches: [main, develop] # Ajuste para suas branches
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clona o repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Configura o Bun (se você usa Bun como gerenciador)
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.x # Use a versão do Bun compatível (ex.: 0.5.8)
+
+      # Instala dependências
+      - name: Install dependencies
+        run: bun install
+
+      # Executa o linter (ESLint)
+      - name: Run ESLint
+        run: bun run lint
+
+      # Executa os testes (se existirem)
+      - name: Run Tests
+        run: bun run test
+        if: success() # Só roda se o lint passar
+
+Explicação:O workflow é acionado em push ou pull_request nas branches especificadas (main, develop, ou outras que você usa).
+Usa a action oven-sh/setup-bun para configurar o Bun.
+Instala dependências com bun install.
+Executa o comando bun run lint para rodar o ESLint.
+Executa bun run test para rodar os testes (se configurados; remova essa etapa se não houver testes).
+
+Teste sem testes:
+Se você ainda não tem testes, pode remover a etapa Run Tests do workflow. O ESLint já será suficiente para verificar a qualidade do código.
+
+4. Teste o WorkflowFaça um commit e push para uma branch (ex.: git push origin feature/nova-funcionalidade).
+Crie uma PR no GitHub.
+Verifique a aba Actions no repositório do GitHub. Você verá o workflow Lint and Test rodando.
+Se o ESLint ou testes falharem, o GitHub marcará o check como falho, indicando o erro. Você pode ver os logs detalhados na aba Actions.
+
+5. Integre com PRsPara garantir que as PRs só sejam mergeadas se o workflow passar:Vá para Settings > Branches no repositório do GitHub.
+Em Branch protection rules, adicione ou edite uma regra para a branch main (ou outra).
+Habilite:Require status checks to pass before merging.
+Selecione o workflow Lint and Test como um check obrigatório.
+
+Isso impede que você faça merge de uma PR se o ESLint ou testes falharem.
+
+6. Por que isso é útil no seu caso?Como você já revisa o código localmente antes de commitar, o GitHub Actions adiciona:Validação automatizada: Confirma que o código segue as regras do ESLint e passa nos testes (se houver), reduzindo erros humanos.
+Documentação visual: O status do workflow (passou/falhou) aparece na PR, reforçando a documentação do processo.
+Escalabilidade: Se outra pessoa entrar no projeto no futuro, o workflow já estará configurado para revisões automáticas.
+Achievements: Embora aprovar PRs não dê badges diretamente, usar GitHub Actions pode contribuir para Achievements como Pull Shark (por criar PRs) ou, indiretamente, para badges de automação se você configurar mais workflows.
+
+7. Dicas AdicionaisAdicione mais verificações: Além do ESLint, considere ferramentas como Prettier (para formatação) ou Stylelint (para Tailwind/CSS). Exemplo para Prettier:json
+
+"scripts": {
+  "format": "prettier --write 'src/**/*.{ts,tsx}'"
+}
+
+Adicione ao workflow:yaml
+
+- name: Run Prettier
+  run: bun run format
+
+Testes locais: Antes de fazer push, rode bun run lint e bun run test localmente para evitar falhas no GitHub Actions.
+Logs detalhados: Se o workflow falhar, os logs na aba Actions mostram exatamente qual arquivo ou linha causou o problema.
+
+Exemplo de Commit e PRFaça alterações no código.
+Rode localmente:bash
+
+bun run lint
+bun run test
+
+Commit e push:bash
+
+git commit -m "feat: adiciona nova funcionalidade"
+git push origin feature/nova-funcionalidade
+
+Crie a PR no GitHub.
+O GitHub Actions rodará automaticamente, e você verá os resultados na PR.
+Se tudo passar, você pode aprovar e fazer merge.
+
+ResumoVocê configurou um GitHub Actions que roda o ESLint (e testes, se aplicável) automaticamente em cada push ou PR, formalizando a revisão que você já faz localmente. Isso mantém a qualidade do código e documenta o processo nas PRs, mesmo sendo o único mantenedor. Se precisar de ajuda para ajustar o workflow (ex.: adicionar Prettier, configurar testes específicos ou integrar com Vercel), é só pedir!
+
+o meu projeto possui sim instalado mas nada configurado ainda: {
+  "name": "Hotsite_DentalUNI_v0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint .",
+    "generate:component": "bun plop component",
+    "generate:icon": "bun scripts/generateIcons.js"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "clsx": "2.1.1",
+    "eslint-config-next": "15.1.6",
+    "leaflet": "1.9.4",
+    "lucide-react": "0.475.0",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-hook-form": "7.49.0",
+    "react-leaflet": "4.2.1",
+    "swiper": "11.0.5",
+    "tailwind-merge": "2.1.0",
+    "tailwind-scrollbar": "2.0.0",
+    "tailwindcss-animate": "1.0.7",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.0.4",
+    "@types/node": "20.14.10",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "eslint": "8.54.0",
+    "plop": "3.0.0",
+    "prettier": "3.3.3",
+    "tailwindcss": "3.4.6",
+    "typescript": "5.1.6"
+  }
+}  Criei o arquivo .eslintrc.json como conteudo: {
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        // Adicione regras personalizadas, se necessário
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error"
+        ]
+    }
+}  Criei tambem o arquivo vitest.config.ts import { defineConfig } from 'vitest/config';export default defineConfig({
+  test: {
+    environment: 'jsdom', // Para testes com React
+    globals: true,
+    setupFiles: './src/setupTests.ts', // Opcional, para configurações globais
+  },
+});  __ mas eu quero fazer esses teste completo. crie um prompt para a cursor IA (IDE) terminar de configurar isso para mim
+
+Seu projeto já tem uma boa base com o ESLint parcialmente configurado e o vitest.config.ts criado. Para completar a configuração de testes com Vitest (escolhido por ser leve e compatível com Bun, além de adequado para seu stack com Next.js, React 19 e TypeScript), você precisa instalar dependências adicionais, criar o arquivo setupTests.ts, configurar scripts no package.json e criar um exemplo de teste. Vou fornecer um prompt claro e detalhado para o Cursor AI (ou qualquer IDE com IA) ajudar a finalizar essa configuração. O prompt será direto, considerando que você é o único mantenedor do projeto Hotsite_DentalUNI_v0 e quer testes completos para validar componentes React e TypeScript.Prompt para o Cursor AIplaintext
+
+Estou configurando testes automatizados com Vitest no meu projeto Hotsite_DentalUNI_v0, que usa Next.js 15.1.6, React 19, TypeScript 5.1.6, Tailwind CSS, e Bun como gerenciador de pacotes. Já tenho o ESLint configurado com o arquivo .eslintrc.json e o Vitest parcialmente configurado com o arquivo vitest.config.ts. Quero que você complete a configuração de testes para validar componentes React e TypeScript, garantindo integração com GitHub Actions para rodar os testes automaticamente em pull requests. Siga estas instruções:
+
+1. **Verifique o package.json**: Aqui está o conteúdo atual do package.json:
+   ```json
+   {
+     "name": "Hotsite_DentalUNI_v0",
+     "version": "0.1.0",
+     "private": true,
+     "scripts": {
+       "dev": "next dev --turbopack",
+       "build": "next build --turbopack",
+       "start": "next start",
+       "lint": "eslint .",
+       "generate:component": "bun plop component",
+       "generate:icon": "bun scripts/generateIcons.js"
+     },
+     "dependencies": {
+       "@hookform/resolvers": "^5.2.2",
+       "clsx": "2.1.1",
+       "eslint-config-next": "15.1.6",
+       "leaflet": "1.9.4",
+       "lucide-react": "0.475.0",
+       "next": "15.1.6",
+       "react": "19.0.0",
+       "react-dom": "19.0.0",
+       "react-hook-form": "7.49.0",
+       "react-leaflet": "4.2.1",
+       "swiper": "11.0.5",
+       "tailwind-merge": "2.1.0",
+       "tailwind-scrollbar": "2.0.0",
+       "tailwindcss-animate": "1.0.7",
+       "zod": "latest"
+     },
+     "devDependencies": {
+       "@tailwindcss/postcss": "4.0.4",
+       "@types/node": "20.14.10",
+       "@types/react": "19.0.0",
+       "@types/react-dom": "19.0.0",
+       "eslint": "8.54.0",
+       "plop": "3.0.0",
+       "prettier": "3.3.3",
+       "tailwindcss": "3.4.6",
+       "typescript": "5.1.6"
+     }
+   }
+
+Adicione dependências necessárias para testes:Instale vitest, @testing-library/react, @testing-library/jest-dom, e @testing-library/user-event como devDependencies usando Bun.
+Atualize o package.json com os scripts:"test": "vitest run"
+"test:watch": "vitest"
+
+Configure o Vitest:O arquivo vitest.config.ts já existe com:ts
+
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/setupTests.ts',
+  },
+});
+
+Crie o arquivo src/setupTests.ts para incluir @testing-library/jest-dom e outras configurações globais de teste.
+
+Crie um exemplo de teste:Crie um teste de exemplo para um componente React simples em src/components/ui/Button.tsx (assuma que existe um componente Button com Tailwind e lucide-react). O teste deve verificar se o componente renderiza corretamente e responde a cliques.
+Coloque o teste em src/components/ui/__tests__/Button.test.tsx.
+
+Atualize o ESLint para testes:Adicione o plugin eslint-plugin-vitest ao .eslintrc.json para suportar regras específicas de testes.
+Instale a dependência eslint-plugin-vitest com Bun.
+Atualize o .eslintrc.json (atual abaixo) para incluir o ambiente Vitest:json
+
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  }
+}
+
+Configure GitHub Actions:Crie um workflow em .github/workflows/lint-and-test.yml que:Rode em push e pull_request nas branches main e develop.
+Use Bun para instalar dependências.
+Execute bun run lint e bun run test.
+Configure a action oven-sh/setup-bun@v1 para usar Bun 1.x.
+
+Boas práticas:Garanta que os testes sejam executáveis localmente com bun run test.
+Adicione instruções no README para rodar testes.
+Certifique-se de que o workflow falhe se o lint ou testes falharem, para bloquear merges ruins em PRs.
+
+Saída esperada:Atualize o package.json com as dependências e scripts.
+Crie o arquivo src/setupTests.ts.
+Crie o teste de exemplo em src/components/ui/__tests__/Button.test.tsx.
+Atualize o .eslintrc.json com suporte ao Vitest.
+Crie o arquivo .github/workflows/lint-and-test.yml.
+Adicione instruções de teste no README.
+
+Por favor, implemente todas as alterações, criando ou atualizando os arquivos necessários no projeto Hotsite_DentalUNI_v0. Forneça o código completo para cada arquivo criado ou modificado e explique como testar localmente.
+
+---
+
+### Explicação do Prompt
+- **Clareza**: O prompt especifica o contexto do projeto (Next.js, React 19, TypeScript, Bun) e lista o `package.json` atual para evitar ambiguidades.
+- **Instruções detalhadas**: Cada etapa (dependências, Vitest, ESLint, GitHub Actions) é descrita com ações claras para o Cursor AI executar.
+- **Foco em testes**: Inclui a criação de um teste de exemplo para um componente Button, que é comum em projetos React com Tailwind.
+- **Integração com GitHub Actions**: Garante que o workflow automatize lint e testes, alinhado com sua prática de revisar localmente antes de commitar.
+- **Boas práticas**: Solicita atualizações no README e regras de ESLint para testes, mantendo o projeto organizado.
+
+### Como Usar o Prompt
+1. Copie o prompt acima.
+2. Cole no Cursor AI (ou na interface de IA da sua IDE).
+3. Execute e revise os arquivos gerados ou modificados (ex.: `package.json`, `src/setupTests.ts`, `src/components/ui/__tests__/Button.test.tsx`, `.eslintrc.json`, `.github/workflows/lint-and-test.yml`).
+4. Teste localmente:
+   ```bash
+   bun install
+   bun run lint
+   bun run test
+
+Faça push para uma branch e crie uma PR para verificar o GitHub Actions.
+
+Se precisar de ajustes no prompt ou ajuda para revisar as saídas do Cursor AI, posso ajudar a validar os arquivos gerados!
+
+qual a necessidade dess arquivo Crie o teste de exemplo em src/components/ui/__tests__/Button.test.tsx. ????
+
+A criação do arquivo de teste de exemplo em src/components/ui/__tests__/Button.test.tsx no seu projeto Hotsite_DentalUNI_v0 tem propósitos específicos, especialmente no contexto de configurar testes automatizados com Vitest para validar seu código. Como você é o único mantenedor e já revisa o código localmente antes de commitar, esse arquivo de teste é importante por razões práticas e estratégicas. Aqui está a explicação detalhada:Por que criar um teste de exemplo como Button.test.tsx?Validação da Configuração de Testes:O arquivo Button.test.tsx serve como uma prova de conceito para garantir que o ambiente de testes (Vitest com @testing-library/react) está configurado corretamente. Ele testa se:O Vitest consegue executar testes em arquivos TypeScript (*.tsx).
+O ambiente jsdom (usado para simular o DOM do navegador) está funcionando.
+As dependências como @testing-library/react e @testing-library/jest-dom estão integradas.
+
+Sem um teste de exemplo, você não teria certeza se o setup de testes está funcional até tentar testar um componente real, o que pode ser mais complexo.
+
+Padrão para Futuros Testes:O teste de exemplo estabelece uma estrutura padrão para escrever testes em outros componentes do projeto. Por exemplo, ele mostra como:Renderizar um componente React (usando render do Testing Library).
+Verificar se o componente aparece na tela (com screen.getByText ou similares).
+Simular interações do usuário (como cliques, com @testing-library/user-event).
+
+Isso cria um modelo que você pode seguir para testar outros componentes, como os do fluxo de contratação ou seções do seu hotsite.
+
+Integração com GitHub Actions:O workflow do GitHub Actions que configuramos roda bun run test. Sem arquivos de teste (como Button.test.tsx), o comando de teste não terá nada para executar, tornando o workflow inútil. O teste de exemplo garante que o GitHub Actions tenha algo para validar, confirmando que o pipeline de CI (integração contínua) está funcionando.
+
+Boas Práticas para Projetos Solo:Mesmo sendo o único desenvolvedor, testes automatizados ajudam a prevenir erros que podem passar despercebidos na revisão manual. Um teste para um componente simples como um Button (que provavelmente usa Tailwind e lucide-react no seu projeto) valida funcionalidades básicas, como renderização e comportamento interativo.
+O teste também documenta o comportamento esperado do componente, o que é útil se o projeto crescer ou outra pessoa se juntar no futuro.
+
+Suporte ao Componente Button:Seu projeto usa Tailwind CSS e lucide-react, sugerindo que você tem componentes de UI reutilizáveis, como um Button. Testar esse componente é um bom ponto de partida porque:Botões são comuns em interfaces (ex.: formulários de contratação, navegação).
+Testes para botões são simples, mas cobrem aspectos importantes como renderização, classes Tailwind aplicadas corretamente e eventos de clique.
+
+Se o componente Button.tsx ainda não existe, o teste de exemplo pode motivar a criação de um componente reutilizável, alinhado com as boas práticas mencionadas no seu README (como usar src/components/ui/ para UI genérica).
+
+Prevenção de Regressões:Um teste como Button.test.tsx garante que, ao atualizar dependências (ex.: React 19 para uma versão futura) ou refatorar o código, o componente Button continue funcionando como esperado. Isso é especialmente útil no seu caso, já que você refatorou o projeto para Next.js 15 e React 19, e testes ajudam a manter a estabilidade.
+
+Exemplo de Como o Arquivo Pode SerPara ilustrar, aqui está um exemplo do que o src/components/ui/__tests__/Button.test.tsx poderia conter, assumindo que existe um componente Button.tsx:tsx
+
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Button from '../Button';
+
+describe('Button Component', () => {
+  it('renders with correct text', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+
+  it('calls onClick handler when clicked', async () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+    await userEvent.click(screen.getByText('Click me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('applies Tailwind classes correctly', () => {
+    render(<Button>Click me</Button>);
+    const button = screen.getByText('Click me');
+    expect(button).toHaveClass('btn'); // Assumindo que 'btn' é uma classe Tailwind usada
+  });
+});
+
+O que esse teste faz?Verifica se o botão renderiza o texto correto.
+Testa se o evento onClick é disparado ao clicar.
+Confirma que as classes Tailwind (ex.: btn) estão aplicadas, garantindo consistência visual.
+
+Por que é necessário no seu caso?Como você revisa o código localmente antes de commitar, o teste de exemplo pode parecer redundante, mas ele:Automatiza a validação: O GitHub Actions usará esse teste para confirmar que o código está correto, complementando sua revisão manual.
+Economiza tempo futuro: Configurar testes agora evita retrabalho se você adicionar mais componentes ou testes mais complexos.
+Formaliza o processo: Mesmo em projetos solo, testes automatizados adicionam uma camada de confiança e documentação, especialmente para um projeto como o seu, que já segue boas práticas (ex.: ESLint, TypeScript estrito).
+
+Alternativa (se não quiser testes agora)Se você acha que testes são desnecessários no momento (ex.: porque o projeto é pequeno ou você confia na revisão manual), pode configurar o GitHub Actions apenas para o ESLint, omitindo a etapa de testes. Nesse caso, o workflow ficaria assim:yaml
+
+name: Lint
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.x
+      - name: Install dependencies
+        run: bun install
+      - name: Run ESLint
+        run: bun run lint
+
+Porém, isso limita a cobertura de validação, já que testes unitários (como o do Button) verificam comportamento funcional, enquanto o ESLint foca em estilo e erros de código.ResumoO arquivo Button.test.tsx é necessário para:Validar a configuração do Vitest.
+Estabelecer um padrão para testes de componentes React.
+Integrar com o GitHub Actions, garantindo que suas PRs sejam validadas automaticamente.
+Prevenir erros e documentar o comportamento esperado.
+
+Se você não tem um componente Button.tsx ainda, o Cursor AI pode criá-lo como parte do prompt, ou você pode adaptar o teste para outro componente existente (ex.: algo em src/components/ui/). Se precisar de ajuda para ajustar o prompt ou criar o Button.tsx, posso fornecer exemplos adicionais!
+
+Eu perguntei porque estou esse erro aqui:  Module '"@testing-library/react"' has no exported member 'screen'.
+
