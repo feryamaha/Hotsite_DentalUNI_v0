@@ -1,161 +1,192 @@
-## Hotsite DentalUNI v0
+# Dental UNI - Auclan
 
-Hotsite desenvolvido com Next.js 15, React 19 e Tailwind CSS para apresentação de planos odontológicos, área de ajuda e fluxo de contratação.
+Projeto do hotsite Dental UNI feito com Next.js, React 19, TypeScript e Tailwind CSS.
 
-### Sumário
-- [Stack e Requisitos](#stack-e-requisitos)
-- [Instalação](#instalação)
-- [Scripts](#scripts)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Estilos e Design System](#estilos-e-design-system)
-- [Formulários e Validações](#formulários-e-validações)
-- [Geração de Componentes e Ícones](#geração-de-componentes-e-ícones)
-- [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
-- [Build e Deploy](#build-e-deploy)
-- [Boas Práticas](#boas-práticas)
-- [Licença](#licença)
- - [Testes](#testes)
+## 🚀 Tecnologias Principais
 
-### Stack e Requisitos
-- **Framework**: Next.js 15 (App Router) com Turbopack experimental
-- **Linguagem**: TypeScript 5
-- **UI**: React 19, Tailwind CSS 3, `tailwindcss-animate`, `tailwind-merge`, `tailwind-scrollbar`
-- **Forms**: `react-hook-form` + `zod` + `@hookform/resolvers`
-- **Mapas**: `leaflet` + `react-leaflet`
-- **Outros**: `lucide-react`, `swiper`
+- **Next.js 15.1.6** - Framework React com App Router
+- **React 19** / React DOM 19
+- **TypeScript 5.1.6**
+- **Tailwind CSS 3.4.6** (+ animate & scrollbar)
+- **Lucide React** - Ícones
+- **Swiper 11.0.5** - Carrosséis
+- **Leaflet / React-Leaflet** - Mapas interativos
+- **React Hook Form + Zod** - Formulários e validação
+- **clsx, tailwind-merge** - Utilidades CSS/JSX
+- **Plop 3.0.0** - Gerador de componentes
+- **Eslint & Prettier** - Lint e formatação
 
-Requisitos mínimos:
-- Node.js 18.18+ (recomendado 20+)
-- Bun 1.x (opcional, recomendado – há `bun.lockb`), ou npm/yarn/pnpm
+## 📋 Pré-requisitos
 
-### Instalação
-Com Bun (recomendado):
+- Node.js (versão 18 ou superior)
+- Yarn
+
+## 🛠️ Como rodar
+
+### 1. Clone o repositório
 
 ```bash
-bun install
+git clone <URL_DO_REPOSITORIO>
+cd Hotsite_DentalUNI_v0
 ```
 
-Com npm:
+### 2. Instale as dependências
 
 ```bash
-npm install
+yarn install
 ```
 
-### Scripts
-Disponíveis em `package.json`:
+### 3. Configure as variáveis de ambiente
 
-- `dev`: inicia o servidor de desenvolvimento com Turbopack.
-  ```bash
-  bun dev # ou npm run dev
-  ```
+Crie um arquivo `.env.local` (confirme os valores com o time).
 
-- `build`: gera o build de produção com Turbopack.
-  ```bash
-  bun run build # ou npm run build
-  ```
+### 4. Inicie o projeto
 
-- `start`: inicia o servidor em modo produção.
-  ```bash
-  bun start # ou npm run start
-  ```
+```bash
+yarn dev
+```
 
-- `lint`: executa o ESLint.
-  ```bash
-  bun run lint # ou npm run lint
-  ```
+### 5. Acesse a aplicação
 
-- `generate:component`: gera um componente via Plop.
-  ```bash
-  bun plop component
-  ```
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-- `generate:icon`: gera componentes de ícone a partir de `public/assets/icons`.
-  ```bash
-  bun scripts/generateIcons.js
-  ```
+## 📜 Scripts Disponíveis
 
-### Estrutura do Projeto
-Diretórios principais em `src/`:
+| Script | Descrição |
+|--------|-----------|
+| `yarn dev` | Inicia o ambiente de desenvolvimento |
+| `yarn build` | Gera o build de produção |
+| `yarn start` | Inicia o servidor de produção |
+| `yarn lint` | Executa o lint do projeto |
+| `yarn generate:icon` | Gera SVG icons |
+| `yarn generate:component` | Gera componentes (Plop) |
 
-- `app/`: rotas (App Router), `layout.tsx`, páginas, `globals.css`.
-  - `page/` com seções: `plans/`, `help/`, `(contractPlans)/` etc.
-- `components/`: componentes de UI e pages específicas (Home, Help, OurPlans, fluxo de contratação, UI genérica).
-- `constants/`: enums, interfaces e constantes de planos/horários.
-- `context/`: `FormContext` para estado de formulários.
-- `data/`: mocks e dados estáticos (rede credenciada, blog, FAQs, menu, IDSS).
-- `hooks/`: hooks utilitários, como renderização HTML e datas formatadas.
-- `lib/`: schemas e utils compartilhados (ex.: `formSchema.ts`, `utils.ts`).
-- `schemas/`: schemas de contrato (`contractPlansSchema.ts`).
-- `scripts/`: automações (ex.: `generateIcons.js`, `Icon.tsx`, `IconsList.tsx`).
-- `types/`: tipos auxiliares (ex.: `menuConfigMobile.ts`).
+## 📁 Estrutura do Projeto
 
-Público/ativos:
-- `public/assets/`: ícones SVG e imagens `.webp` usadas nas seções.
-- `public/fonts/`: fontes web (ex.: `lato-600.woff2`).
+```
+Hotsite_DentalUNI_v0/
+├── public/                     # Arquivos estáticos
+│   ├── assets/                 # Imagens e ícones
+│   │   ├── icons/              # Ícones SVG
+│   │   └── img/                # Imagens WebP
+│   ├── fonts/                  # Fontes customizadas
+│   └── favicon.ico
+├── src/
+│   ├── app/                    # App Router (Next.js 13+)
+│   │   ├── page/               # Páginas da aplicação
+│   │   │   ├── (contractPlans)/ # Grupo de rotas
+│   │   │   │   └── contractPlans/
+│   │   │   ├── help/           # Página de ajuda
+│   │   │   └── plans/          # Página de planos
+│   │   ├── globals.css         # Estilos globais
+│   │   ├── layout.tsx          # Layout principal
+│   │   └── page.tsx            # Página inicial
+│   ├── components/             # Componentes React
+│   │   ├── PageContratarPlano/ # Fluxo de contratação
+│   │   │   ├── StepA0-Welcome.tsx
+│   │   │   ├── StepA1-HolderData.tsx
+│   │   │   ├── StepA2-ContactData.tsx
+│   │   │   ├── StepA3-LocationData.tsx
+│   │   │   ├── StepA4-AccpetTerms.tsx
+│   │   │   ├── StepA5-Successfully.tsx
+│   │   │   └── StepB-Dependentes/ # Gestão de dependentes
+│   │   ├── PageHelp/           # Componentes da página de ajuda
+│   │   │   ├── FormHelp.tsx
+│   │   │   ├── HomeHelp.tsx
+│   │   │   └── data/           # Dados específicos
+│   │   ├── PageHome/           # Componentes da página inicial
+│   │   │   ├── AmazingPlans/   # Seção de planos
+│   │   │   │   └── Modal/      # Modais de comparação
+│   │   │   ├── Baneficiary/    # Seção de beneficiários
+│   │   │   ├── BannerHome/     # Banner principal
+│   │   │   ├── Discover/       # Seção de descoberta
+│   │   │   ├── Header/         # Cabeçalho
+│   │   │   ├── Questions/      # FAQ
+│   │   │   └── Footer.tsx      # Rodapé
+│   │   ├── PageOurPlans/       # Componentes da página de planos
+│   │   ├── ui/                 # Componentes de interface
+│   │   │   ├── Button.tsx
+│   │   │   ├── Input.tsx
+│   │   │   └── Container.tsx
+│   │   └── debug/              # Componentes de debug
+│   ├── constants/              # Constantes e enums
+│   │   ├── enums.ts
+│   │   ├── interfaces.ts
+│   │   ├── openingHours.ts
+│   │   └── planos.ts
+│   ├── context/                # Contextos React
+│   │   └── FormContext.tsx
+│   ├── data/                   # Dados mockados e estáticos
+│   │   ├── accreditedNetwork/
+│   │   ├── mockContracPlans/
+│   │   ├── blogContentMock.ts
+│   │   ├── idssData.ts
+│   │   ├── menuMock.ts
+│   │   └── mockFaq.ts
+│   ├── hooks/                  # Hooks customizados
+│   │   ├── html-renderer.tsx
+│   │   ├── use-formatted-date.ts
+│   │   └── useFaqManager.ts
+│   ├── lib/                    # Utilitários e configurações
+│   │   ├── formHelpSchema.ts
+│   │   ├── formSchema.ts
+│   │   └── utils.ts
+│   ├── schemas/                # Schemas de validação
+│   │   └── contractPlansSchema.ts
+│   ├── scripts/                # Scripts de automação
+│   │   ├── generateIcons.js
+│   │   ├── Icon.tsx
+│   │   └── IconsList.tsx
+│   └── types/                  # Definições de tipos TypeScript
+│       └── menuConfigMobile.ts
+├── tailwind.config.ts          # Configuração do Tailwind
+├── next.config.ts              # Configuração do Next.js
+├── tsconfig.json               # Configuração do TypeScript
+└── package.json                # Dependências e scripts
+```
 
-Alias de importação:
-- Configurado em `tsconfig.json`: `@/*` aponta para `src/*`.
+## 🎯 Funcionalidades Principais
 
-### Estilos e Design System
-- Tailwind configurado em `tailwind.config.ts` com:
-  - Paleta extensa (ver tons `red`, `gray`, `green`, `blue`), tokens `redSTD`, `greenCoverage`, etc.
-  - Imagens de fundo nomeadas: `BgHomeHelp`, `BgContact`, `BgBannerHomeOurPlans`, `bgFooter`, `BGStepB0`...
-  - `fontFamily`: `inter`, `lato`, `openSans`.
-  - Keyframes/animações para modais, accordions e efeitos (`bounce-x`, `modal-enter-mobile`, ...).
-  - Utilitários personalizados via plugin (classes `Typography*`, `btn*`, `styleSlider*`, etc.).
-  - `screens` customizadas: `@mobile`, `@tablet`, `@laptop`, `@Desktop`, `@Desktop1440`, `@LargeDesktop`.
-- PostCSS em `postcss.config.js` com `tailwindcss` e `autoprefixer`.
+### 📄 Páginas
+- **Home** (`/`) - Página inicial com planos, FAQ e informações
+- **Planos** (`/plans`) - Detalhes dos planos disponíveis
+- **Ajuda** (`/help`) - Suporte e contato
+- **Contratação** (`/contractPlans`) - Fluxo de contratação de planos
 
-Onde declarar estilos globais:
-- `src/app/globals.css`
+### 🔄 Fluxo de Contratação
+1. **Boas-vindas** - Introdução ao processo
+2. **Dados do Titular** - Informações pessoais
+3. **Dados de Contato** - Telefone e email
+4. **Dados de Localização** - Endereço
+5. **Aceite de Termos** - Contrato e termos
+6. **Sucesso** - Confirmação da contratação
+7. **Dependentes** - Gestão de dependentes (opcional)
 
-### Formulários e Validações
-- `react-hook-form` + `zod` para validação tipada.
-- Schemas em `src/lib/formSchema.ts`, `src/api/schemas/formHelpSchema.ts` e `src/schemas/contractPlansSchema.ts`.
-- Componentes do fluxo de contratação em `src/components/PageContratarPlano/` (Steps e Dependentes).
+### 🧩 Componentes Principais
+- **Formulários** - Validação com React Hook Form + Zod
+- **Modais** - Comparação de planos e procedimentos
+- **Carrosséis** - Sliders com Swiper
+- **Mapas** - Localização com Leaflet
+- **FAQ** - Accordions interativos
+- **Responsivo** - Design mobile-first
 
-### Geração de Componentes e Ícones
-- Componentes: `bun plop component` (templates configurados via Plop). Caso use npm, instale o Plop global/localmente ou rode via `npx`.
-- Ícones: `bun scripts/generateIcons.js` varre `public/assets/icons` e exporta componentes React utilitários (`src/scripts/Icon.tsx`, `IconsList.tsx`).
+## 🎨 Design System
 
-### Ambiente de Desenvolvimento
-1) Copie variáveis de ambiente se necessário (não há `.env` obrigatório no momento).
-2) Instale dependências e rode `dev`.
-3) Acesse `http://localhost:3000`.
+- **Tailwind CSS** para estilização
+- **Componentes reutilizáveis** em `/src/components/ui/`
+- **Ícones** com Lucide React
+- **Animações** com tailwindcss-animate
+- **Responsividade** mobile-first
 
-Dicas:
-- Utilize o alias `@/` para imports absolutos.
-- Prefira componentes de UI em `src/components/ui/` onde disponível.
-- Siga as classes utilitárias tipográficas e de botões já definidas no Tailwind para consistência visual.
+## 🤝 Contribuição
 
-### Build e Deploy
-- Build de produção: `bun run build` (ou `npm run build`).
-- Execução: `bun start` (ou `npm start`).
-- Next.js 15 com `reactStrictMode` e `experimental.turbo` habilitado em `next.config.ts`.
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-Deploys comuns:
-- Vercel (recomendado para Next.js): basta apontar o projeto; os comandos padrão são detectados.
-- Docker (opcional): crie uma imagem instalando deps e rodando `next build`, exponha a porta 3000 e use `next start`.
+## 📄 Licença
 
-### Boas Práticas
-- TypeScript estrito habilitado: mantenha os tipos atualizados.
-- Lint: execute `lint` antes de abrir PRs.
-- Componentes
-  - Nomes descritivos; evite abreviações.
-  - Extraia UI reutilizável para `components/ui`.
-- Estilos
-  - Use tokens e utilitários Tailwind existentes.
-  - Evite CSS ad-hoc fora de `globals.css` quando possível.
-
-### Licença
-Defina a licença conforme a política do projeto (ex.: MIT, proprietário). Caso precise, adicione um arquivo `LICENSE` na raiz.
-
-### Testes
-- Ambiente: Vitest + jsdom + Testing Library.
-- Scripts:
-  - `bun run test`: roda a suíte de testes (modo CI).
-  - `bun run test:watch`: modo interativo durante o desenvolvimento.
-- Setup global: `src/setupTests.ts` (inclui `@testing-library/jest-dom`).
-- Exemplo: teste em `src/components/ui/__tests__/Button.test.tsx` valida renderização e clique.
-
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
