@@ -31,7 +31,6 @@ interface CardSectionPlansProps {
 }
 
 export function CardSectionPlans({
-  id,
   name,
   price,
   description,

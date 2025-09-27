@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Icon } from "@/scripts/Icon";
 
 interface LayoutMobileProps {
@@ -20,8 +21,6 @@ export default function LayoutMobile({
   currentStep = 0,
   totalSteps = 0,
   stepTitle = "",
-  completedSteps,
-  onMenuClick,
   shouldHideLayout = false,
 }: LayoutMobileProps) {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -41,9 +40,9 @@ export default function LayoutMobile({
       {/* 🔹 HEADER FIXO GLOBAL (logo + botão fechar) */}
       {!shouldHideLayout && (
         <div className="fixed top-0 w-full h-[80px] py-[16px] px-[32px] flex items-center justify-between bg-white z-50">
-          <a href="/" className="w-[154px] h-[24px]">
+          <Link href="/" className="w-[154px] h-[24px]">
             <Icon name="IconLogoinstitucional" className="w-full h-full" />
-          </a>
+          </Link>
           <button className="w-max h-max" onClick={handleClose}>
             <Icon name={currentStep === 0 ? "IconCloseA" : "IconCloseB"} />
           </button>

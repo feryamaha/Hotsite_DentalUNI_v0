@@ -1,7 +1,6 @@
 import { Button } from "../../ui/Button";
 
 import { Icon } from "@/scripts/Icon";
-import Link from "next/link";
 
 interface FastAccessItemProps {
   icon: string;
@@ -73,13 +72,13 @@ export function FaqSection() {
               <div className="p-[13px] border border-red50 bg-red25 rounded-[5px] group-hover:bg-redSTD">
                 <div className="group-hover:hidden">
                   <Icon
-                    name={item.icon as any}
+                    name={item.icon}
                     className="w-[24px] h-[24px] bg-hidden"
                   />
                 </div>
                 <div className="hidden group-hover:block">
                   <Icon
-                    name={item.iconHover as any}
+                    name={item.iconHover}
                     className="w-[24px] h-[24px] bg-hidden"
                   />
                 </div>

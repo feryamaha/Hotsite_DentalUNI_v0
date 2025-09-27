@@ -35,9 +35,9 @@ export function Header({ children }: HeaderProps) {
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-10">
-            <a href="/" className="w-[154px] h-[24px]">
+            <Link href="/" className="w-[154px] h-[24px]">
               <Icon name="IconLogoinstitucional" className="w-full h-full" />
-            </a>
+            </Link>
 
             <nav className="max-w-[492px] flex items-center gap-2 hidden @tablet:flex">
               {menuItems.map((item) => {

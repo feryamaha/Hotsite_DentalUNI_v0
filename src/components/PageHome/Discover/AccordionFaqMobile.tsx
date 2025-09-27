@@ -112,7 +112,7 @@ export function AccordionFaqMobile() {
                                 >
                                   <Icon
                                     className=""
-                                    name={discoverItem.icon as any}
+                                    name={discoverItem.icon}
                                   />
                                 </div>
                               )}

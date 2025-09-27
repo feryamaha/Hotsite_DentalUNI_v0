@@ -1,3 +1,4 @@
 {
-  "/page/(contractPlans)/contractPlans/page": "app/page/(contractPlans)/contractPlans/page.js"
+  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }

@@ -3,8 +3,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { Icon } from "@/scripts/Icon";
 import { Button } from "@/components/ui/Button";
-import MenuSidebar from "@/components/ui/MenuSidebar";
-import { useFormContext as useGlobalFormContext } from "@/context/FormContext";
 import { FloatingLabelInput } from "@/components/ui/FloatingLabelInput";
 import { z } from "zod";
 
@@ -23,7 +21,6 @@ export function StepB2AddInitialData({
   onNext,
   onBack,
 }: StepB2AddInitialDataProps) {
-  const { onMenuClick, currentStep, completedSteps } = useGlobalFormContext();
 
   const [form, setForm] = useState({
     nome: "",

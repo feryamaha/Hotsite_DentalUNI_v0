@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { CardSectionPlans } from "@/components/PageHome/AmazingPlans/CardSectionPlans";
 import plansData from "./ListSectionPlans.json";
 import { PlansData } from "@/types/menuConfigMobile";
-import IntraMenu from "./IntraMenu";
 import { Icon } from "@/scripts/Icon";
 import CoveragePlans from "./CoveragePlans";
 import { BarComparePlans } from "@/components/PageHome/AmazingPlans/BarComparePlans";

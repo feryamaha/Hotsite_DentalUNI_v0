@@ -47,4 +47,6 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(({ name, className = ''
 
   console.warn(`Icon "${name}" not found`)
   return null
-}) 
+})
+
+Icon.displayName = 'Icon' 

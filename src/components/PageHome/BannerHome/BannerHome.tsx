@@ -6,7 +6,6 @@ import { Container } from "@/components/ui/Container";
 import SliderControl from "./SliderControl";
 import { Icon } from "@/scripts/Icon";
 import { Button } from "@/components/ui/Button";
-import { FontDebugger } from "@/components/debug/FontDebugger";
 
 // Imagens do banner - agora referenciando da pasta public
 const bannerImages = [
@@ -24,7 +23,6 @@ const bannerImages = [
   },
 ];
 
-const TOTAL_SLIDES = bannerImages.length;
 
 const BannerHome: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);

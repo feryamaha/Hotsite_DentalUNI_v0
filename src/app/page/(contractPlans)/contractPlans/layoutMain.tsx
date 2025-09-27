@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import React, { ReactNode, useEffect, useState } from "react";
 import { Icon } from "@/scripts/Icon";
 import LayoutMobile from "./layoutMobile";
@@ -65,9 +66,9 @@ export default function ContractPlansLayout({
     <div className="w-full h-screen fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-50 z-50">
       {!shouldHideLayout && (
         <div className="fixed top-0 w-full h-[80px] py-[16px] px-[32px] flex items-center justify-between bg-transparent z-50">
-          <a href="/" className="w-[154px] h-[24px]">
+          <Link href="/" className="w-[154px] h-[24px]">
             <Icon name="IconLogoinstitucional" className="w-full h-full" />
-          </a>
+          </Link>
           <button className="w-max h-max" onClick={handleClose}>
             <Icon name={currentStep === 0 ? "IconCloseA" : "IconCloseB"} />
           </button>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Icon } from "@/scripts/Icon";
 
 export interface MenuSidebarProps {
@@ -22,14 +22,8 @@ const menuItems = [
 export function MenuSidebar({
   onMenuClick,
   currentStep,
-  completedSteps,
   isMobile = false,
 }: MenuSidebarProps) {
-  const [savedSteps, setSavedSteps] = useState<number[]>([]);
-
-  useEffect(() => {
-    setSavedSteps([]);
-  }, [currentStep]);
 
   return (
     <div

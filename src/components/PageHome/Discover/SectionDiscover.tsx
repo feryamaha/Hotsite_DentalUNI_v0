@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { AccordionFAQ } from "./AccordionFAQ";
 import { Icon } from "@/scripts/Icon";
 import faqData from "./faqData.json";
-import { Button } from "@/components/ui/Button";
 import discoverContent from "./discoverContent.json";
 import { AccordionFaqMobile } from "./AccordionFaqMobile";
 
@@ -92,7 +91,7 @@ export function SectionDiscover() {
                                 <div
                                   className={`${item.icon ? "mr-4" : "mr-0 "} `}
                                 >
-                                  <Icon className="" name={item.icon as any} />
+                                  <Icon className="" name={item.icon} />
                                 </div>
                               )}
                               <p className="TypographyPinter16w500g950 ">

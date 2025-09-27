@@ -3,7 +3,6 @@
 import React from "react";
 import { Icon } from "@/scripts/Icon";
 import { Button } from "@/components/ui/Button";
-import { useFormContext } from "@/context/FormContext";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -17,7 +16,6 @@ export function StepB0IncludeDependent({
   onIncludeNow,
   onIncludeLater,
 }: StepB0IncludeDependentProps) {
-  const { onMenuClick, currentStep, completedSteps } = useFormContext();
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">

@@ -14,7 +14,6 @@ interface CardSPlansMobileProps {
 
 // Componente Card Mobile - versão com borda e sem vetor falso
 export function CardSPlansMobile({
-  id,
   name,
   price,
   description,

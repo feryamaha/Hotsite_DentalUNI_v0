@@ -159,7 +159,7 @@ export function SliderNumber({
       window.removeEventListener("touchmove", handleMove);
       window.removeEventListener("touchend", handleEnd);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMove]);
 
   return (
     <div className="w-full pt-[2px] flex flex-col items-center overflow-x-auto scrollbar-none">

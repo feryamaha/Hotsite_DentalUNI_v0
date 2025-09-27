@@ -4,10 +4,10 @@ import { UseFormRegister, FieldErrors, useWatch } from "react-hook-form";
 interface FloatingLabelInputProps {
   label: string;
   name: string;
-  register?: UseFormRegister<any>;
-  errors?: FieldErrors<any> | { [key: string]: string };
+  register?: UseFormRegister<Record<string, unknown>>;
+  errors?: FieldErrors<Record<string, unknown>> | { [key: string]: string };
 
-  validation?: any;
+  validation?: Record<string, unknown>;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
@@ -18,7 +18,7 @@ interface FloatingLabelInputProps {
   maxLength?: number;
   readOnly?: boolean;
   disabled?: boolean;
-  control?: any;
+  control?: Record<string, unknown>;
   onlyLetters?: boolean;
   onlyNumbers?: boolean;
   allowAllCharacters?: boolean;
@@ -86,14 +86,7 @@ export function FloatingLabelInput({
       ? register(name)
       : null;
 
-  let watchedValue = "";
-  try {
-    if (control && name) {
-      watchedValue = useWatch({ control, name }) || "";
-    }
-  } catch {
-    watchedValue = "";
-  }
+  const watchedValue = useWatch({ control, name }) || "";
 
   const [hasContent, setHasContent] = useState(false);
 
@@ -158,7 +151,7 @@ export function FloatingLabelInput({
     // Caso o "name" tenha pontos (campo aninhado), quebra em partes
     // Ex: "dependente.cpf" → ["dependente", "cpf"]
     const nameParts = name.split(".");
-    let currentError: any = errors;
+    let currentError: unknown = errors;
 
     // Navega recursivamente no objeto de errors até chegar no campo alvo
     for (const part of nameParts) {

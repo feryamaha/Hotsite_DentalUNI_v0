@@ -15,15 +15,6 @@ interface StepB1AddDependentProps {
   onBack: () => void;
 }
 
-// Exemplo de dados para um dropdown de parentesco (caso precise usar assim como BRAZILIAN_STATES no A3)
-// Se esse step não utiliza dropdown, só deixe definido igual para futura evolução.
-const RELATIONSHIP_TYPES = [
-  { value: "", label: "Selecione o parentesco" },
-  { value: "CONJUGE", label: "Cônjuge" },
-  { value: "FILHO", label: "Filho(a)" },
-  { value: "ENTEADO", label: "Enteado(a)" },
-  { value: "OUTRO", label: "Outro" },
-];
 
 export function StepB1AddDependent({
   onNext,

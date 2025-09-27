@@ -75,7 +75,7 @@ export function SectionPlans() {
             className="w-full border rounded-[8px] justify-center"
             style={{ display: isDesktop ? "flex" : "none" }}
           >
-            {plansData.plans.map((plan, index, array) => (
+            {plansData.plans.map((plan, index) => (
               <div key={`desktop-${plan.id}`}>
                 <CardSectionPlans
                   id={plan.id}
@@ -83,7 +83,7 @@ export function SectionPlans() {
                   price={plan.price}
                   description={plan.description}
                   procedures={plan.procedures}
-                  hideVector={index === array.length - 1}
+                  hideVector={index === plansData.plans.length - 1}
                   vectorIconClass="IconVetorCardPlans" // Specific icon for SectionPlans
                   onOpenModal={() => handleOpenModal(plan.id)}
                 />
@@ -95,7 +95,7 @@ export function SectionPlans() {
             className="w-full flex flex-wrap gap-[24px] justify-start"
             style={{ display: isDesktop ? "none" : "flex" }}
           >
-            {plansData.plans.map((plan, index, array) => (
+            {plansData.plans.map((plan) => (
               <div key={`mobile-${plan.id}`}>
                 <CardSPlansMobile
                   id={plan.id}

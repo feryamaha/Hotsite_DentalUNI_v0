@@ -13,16 +13,6 @@ interface ProcedureItem {
   coverage: string;
 }
 
-// Estrutura dos dados do plano, podendo ter procedimentos ou atos
-interface PlanData {
-  plan: {
-    name: string;
-    price: string;
-    priceUnit: string;
-  };
-  procedures?: ProcedureItem[];
-  acts?: ProcedureItem[];
-}
 
 // Propriedades do modal: função para fechar e ID do plano
 interface ModalProcedimentosProps {
@@ -32,7 +22,6 @@ interface ModalProcedimentosProps {
 
 export default function ModalProcedimentos({
   onClose,
-  planId = "", // Valor padrão vazio
 }: ModalProcedimentosProps) {
   // Filtro selecionado: Todos, Sim ou Não
   const [filter, setFilter] = useState("Todos");

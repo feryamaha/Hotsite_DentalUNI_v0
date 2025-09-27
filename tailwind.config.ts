@@ -169,8 +169,9 @@ export default {
     },
   },
   plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("tailwindcss-animate"),
-    function ({ addUtilities, theme }: any) {
+    function ({ addUtilities, theme }: { addUtilities: (utilities: Record<string, Record<string, string>>) => void; theme: (path: string) => string }) {
       const newUtilities = {
         ".TypographyPinter9": {
           color: theme("colors.white"),

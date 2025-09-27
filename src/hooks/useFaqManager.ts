@@ -1,7 +1,7 @@
 'use client'
 
 let openFaqId: string | null = null
-let subscribers: Function[] = []
+let subscribers: (() => void)[] = []
 
 export const FaqManager = {
   getOpenId: () => openFaqId,
@@ -11,7 +11,7 @@ export const FaqManager = {
     subscribers.forEach((callback) => callback())
   },
 
-  subscribe: (callback: Function) => {
+  subscribe: (callback: () => void) => {
     subscribers.push(callback)
     return () => {
       subscribers = subscribers.filter((sub) => sub !== callback)

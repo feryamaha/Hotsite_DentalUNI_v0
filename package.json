@@ -10,7 +10,7 @@
   "test": "vitest run",
   "test:watch": "vitest",
   "generate:component": "plop component",
-  "generate:icon": "node scripts/generateIcons.js"
+    "generate:icon": "node src/scripts/generateIcons.js"
 }
 ,
   "dependencies": {

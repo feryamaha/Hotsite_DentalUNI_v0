@@ -23,19 +23,6 @@ interface IncludedItem {
   textIncludE?: string;
 }
 
-interface Plan {
-  id: string;
-  name: string;
-  price: string;
-  description: string;
-  IncludTitle: string;
-  includA: { iconInclud: string; textIncludA: string }[];
-  includB: { iconInclud: string; textIncludB: string }[];
-  includC: { iconInclud: string; textIncludC: string }[];
-  includD: { iconInclud: string; textIncludD: string }[];
-  includE: { iconInclud: string; textIncludE: string }[];
-  procedures: string;
-}
 
 interface IncludedItemsProps {
   IncludTitle?: string;

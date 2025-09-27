@@ -108,7 +108,6 @@ export function StepA3LocationData({
   const cep = useWatch({ control, name: "location.cep" });
   const address = useWatch({ control, name: "location.address" });
   const number = useWatch({ control, name: "location.number" });
-  const complement = useWatch({ control, name: "location.complement" });
   const state = useWatch({ control, name: "location.state" });
   const city = useWatch({ control, name: "location.city" });
 
@@ -130,7 +129,7 @@ export function StepA3LocationData({
     );
   }, [cep, address, number, state, city]);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     onNext();
   };
 

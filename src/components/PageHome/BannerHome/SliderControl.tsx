@@ -59,7 +59,7 @@ const SliderControl: React.FC<SliderControlProps> = ({
     const [isPlaying, setIsPlaying] = useState(true);
 
     // Extrai configurações
-    const { slideDuration, transitionPercentage, transitionDuration } = sliderConfig;
+    const { slideDuration, transitionPercentage } = sliderConfig;
     const TRANSITION_START = slideDuration * transitionPercentage; // Ex.: 6860ms para 98%
 
     // Navega para o próximo slide
@@ -91,7 +91,7 @@ const SliderControl: React.FC<SliderControlProps> = ({
         if (!isPlaying) return;
         const timeout = setTimeout(nextSlide, TRANSITION_START);
         return () => clearTimeout(timeout);
-    }, [isPlaying, current, TRANSITION_START]);
+    }, [isPlaying, current, TRANSITION_START, nextSlide]);
 
     // Alterna play/pause
     const handlePlayPause = () => setIsPlaying(!isPlaying);

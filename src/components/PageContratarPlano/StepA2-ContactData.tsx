@@ -62,7 +62,7 @@ export function StepA2ContactData({ onNext, onBack }: StepA2ContactDataProps) {
     );
   }, [email, emailConfirmation, cellPhone, phone]);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     onNext();
   };
 

@@ -21,7 +21,6 @@ import StepA5Sucessfully from "@/components/PageContratarPlano/StepA5-Successful
 export default function ContractPlansPage() {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
-  const [steps, setSteps] = useState<number[]>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   const handleNext = () => {
     console.log("handleNext called, currentStep:", currentStep);
