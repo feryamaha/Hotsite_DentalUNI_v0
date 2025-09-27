@@ -121,7 +121,7 @@ export function StepB1AddDependent({
   const sideContent = (
     <div className="w-full h-max flex flex-col gap-[8px]">
       <div className="w-full h-max py-[16px] px-[24px] bg-white rounded-[8px]">
-        <PlanDetailsCard />
+        <PlanDetailsCard onOpenModal={() => { }} />
       </div>
       <IncludeBeneficiaryCard />
     </div>

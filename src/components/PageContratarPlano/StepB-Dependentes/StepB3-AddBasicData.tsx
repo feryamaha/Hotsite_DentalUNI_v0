@@ -44,7 +44,7 @@ export function StepB3BasicData({ onNext, onBack }: StepB3BasicDataProps) {
     const result = basicDataSchema.safeParse(form);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
+      result.error.issues.forEach((err) => {
         fieldErrors[err.path[0] as string] = err.message;
       });
       setErrors(fieldErrors);

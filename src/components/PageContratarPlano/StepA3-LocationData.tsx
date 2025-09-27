@@ -140,7 +140,7 @@ export function StepA3LocationData({
       {!isMobile && (
         <div className="w-max">
           <MenuSidebar
-            onMenuClick={onMenuClick || (() => {})}
+            onMenuClick={onMenuClick || (() => { })}
             currentStep={currentStep}
             completedSteps={Array.from(completedSteps)}
           />
@@ -251,11 +251,10 @@ export function StepA3LocationData({
                       Estado
                     </label>
                     <select
-                      className={`form-select w-full h-[56px] rounded-[8px] border ${
-                        errors?.location?.state
+                      className={`form-select w-full h-[56px] rounded-[8px] border ${errors?.location?.state
                           ? "border-red-500"
                           : "border-[#E0E7EF]"
-                      } px-4 outline-none bg-transparent focus:ring-2 focus:ring-[#5882F2] transition`}
+                        } px-4 outline-none bg-transparent focus:ring-2 focus:ring-[#5882F2] transition`}
                       {...register("location.state", {
                         required: "Estado é obrigatório",
                         pattern: {
@@ -330,7 +329,7 @@ export function StepA3LocationData({
   const sideContent = (
     <div className="w-full h-max flex flex-col gap-[8px]">
       <div className="w-full h-max py-[16px] px-[24px] bg-white rounded-[8px]">
-        <PlanDetailsCard />
+        <PlanDetailsCard onOpenModal={() => { }} />
       </div>
       <IncludeBeneficiaryCard />
     </div>

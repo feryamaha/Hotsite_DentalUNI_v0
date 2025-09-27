@@ -41,7 +41,7 @@ export function StepB2AddInitialData({
     const result = initialDataSchema.safeParse(form);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
+      result.error.issues.forEach((err) => {
         fieldErrors[err.path[0] as string] = err.message;
       });
       setErrors(fieldErrors);
